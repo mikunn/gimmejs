@@ -1,0 +1,17 @@
+{
+  "name": "gimme.js",
+  "version": "0.0.1",
+  "description": "A small package for getting information about your objects, strings etc.",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Mika Kunnas",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-mocha-test": "^0.12.7",
+    "mocha": "^2.2.5"
+  }
+}
