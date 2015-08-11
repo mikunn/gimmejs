@@ -5,8 +5,7 @@ module.exports = function(grunt) {
 				src: ['src/**/*.js'],
 				dest: 'lib/gimme.js',
 				options: {
-					banner: ";(function (global) {\n'use strict';\n\n",
-					footer: "\n\n})(this);"
+					footer: "\nreturn gimme;\n\n});"
 				}
 			}
 		}, // concat
@@ -29,7 +28,6 @@ module.exports = function(grunt) {
 			test: {
 				src: ['test/**/*.js']
 			}
-			
 		}, // mochaTest
 	});
 

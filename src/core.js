@@ -1,3 +1,17 @@
+(function(global, factory) {
+
+	if (typeof module !== 'undefined' && module.exports !== 'undefined') {
+		module.exports = factory();
+	}
+
+	else {
+		global.gimme = factory();	
+	}
+
+})(this, function() {
+
+'use strict';
+
 var methods = {},
 	allTypes = 'array boolean date function number null object regexp string undefined'.split(' '),
 	typesRe = /^([a-z]+( |,)*)+$/i
@@ -46,7 +60,9 @@ var _pushToMethods = function(types, selectedMethods) {
 		for(method in selectedMethods) {
 			type = types[i]
 
-			methods[type].push([method, selectedMethods[method]]);
+			if (type && type.length > 1) {
+				methods[type].push([method, selectedMethods[method]]);
+			}
 		}
 	}
 };
@@ -93,8 +109,8 @@ gimme.extend = function(types, selectedMethods) {
 	valid = typesRe.test(types.trim());
 
 	if (!valid) {
-		throw new Error('The string format of first argument for extend() ' 
-			+ ' is invalid.');
+		throw new Error('The string format of first argument for '
+			+ 'extend() is invalid.');
 	}
 
 	_pushToMethods(gimmeTypesArr(types), selectedMethods);
@@ -102,12 +118,4 @@ gimme.extend = function(types, selectedMethods) {
 };
 
 gimme.type = _type;
-
-if (typeof module !== 'undefined' && module.exports !== 'undefined') {
-	module.exports = gimme;
-}
-
-else {
-	global.gimme = gimme;
-}
 
