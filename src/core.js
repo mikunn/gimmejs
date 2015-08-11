@@ -1,14 +1,4 @@
-(function(global, factory) {
-
-	if (typeof module !== 'undefined' && module.exports !== 'undefined') {
-		module.exports = factory();
-	}
-
-	else {
-		global.gimme = factory();
-	}
-
-})(this, function() {
+(function(global) {
 
 'use strict';
 
@@ -18,12 +8,29 @@ var prototypes = {},
 ;
 
 var _init = function() {
-	var i = 0;
-	var len = allTypes.length;
+	_initPrototypes();
+	_setExports();
+};
+
+var _initPrototypes = function() {
+	var i = 0,
+		len = allTypes.length
+	;
 
 	for(i; i < len; i++) {
 		prototypes[allTypes[i]] = {};
 	}
+};
+
+var _setExports = function() {
+	if (typeof module !== 'undefined' && module.exports !== 'undefined') {
+		module.exports = gimme;
+	}
+
+	else {
+		global.gimme = gimme;
+	}
+
 };
 
 var _buildObj = function(entity) {
@@ -36,11 +43,11 @@ var _buildObj = function(entity) {
 	obj.type = type;
 
 	return obj;
-}
+};
 
 var _type = function(value) {
 	return Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
-}
+};
 
 var _pushToMethods = function(types, selectedMethods) {
 	var type,
@@ -111,4 +118,3 @@ gimme.extend = function(types, selectedMethods) {
 gimme.type = _type;
 
 _init();
-

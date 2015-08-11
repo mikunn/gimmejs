@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 				src: ['src/**/*.js'],
 				dest: 'lib/gimme.js',
 				options: {
-					footer: "\nreturn gimme;\n\n});"
+					footer: "\n\n})(this);"
 				}
 			}
 		}, // concat
