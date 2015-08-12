@@ -9,6 +9,13 @@ function inArray(elem) {
 }
 
 gimme.extend('array', {
+
+	/* if unique is false, returns an array whose
+	 * each element corresponds to the type of the element
+	 * in the passed in array
+	 * if unique is true, returns an array containing the
+	 * types of the elements only once
+     */
 	elementTypes: function(unique) {
 
 		unique = unique || false;
@@ -23,6 +30,8 @@ gimme.extend('array', {
 		while (i < len) {
 			type = gimme.type(arr[i]);
 
+			// store type name in the array only if
+			// it isn't there already or unique is false
 			if (!unique || !inArray(type)) {
 				elements.push(type);
 			}

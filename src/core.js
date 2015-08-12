@@ -4,7 +4,9 @@
 
 var prototypes = {},
 	allTypes = 'array boolean date function number null object regexp string undefined'.split(' '),
-	typesRe = /^([a-z]+( |,)*)+$/i
+	
+	// accepts only words separated by commas and/or spaces
+	typesRe = /^([a-z]+( |,)*)+$/i 
 ;
 
 var _init = function() {
@@ -79,6 +81,8 @@ var _addMethods = function(types, selectedMethods) {
 // to an array of type names
 var _typesStrToArr = function(types) {
 
+	// converts comma or/and space separated
+	// words into an array
 	types = types.replace(/(\s|,)+/g, ' ').trim().split(' ');
 
 	if (types.indexOf('all') === 0) {
@@ -100,6 +104,7 @@ var _typesStrToArr = function(types) {
 	return types;
 };
 
+// public gimme() function
 var gimme = function(entity) {
 	return _buildObj(entity);
 };
@@ -112,6 +117,7 @@ gimme.extend = function(types, selectedMethods) {
 			+ 'as the second parameter for function extend');
 	}
 
+	// checks that the format of the types string is valid
 	valid = typesRe.test(types.trim());
 
 	if (!valid) {
@@ -119,6 +125,8 @@ gimme.extend = function(types, selectedMethods) {
 			+ 'extend() is invalid.');
 	}
 
+	// selected methods will be added to the prototype of
+	// the gimme objects of the selected types
 	_addMethods(_typesStrToArr(types), selectedMethods);
 
 };
