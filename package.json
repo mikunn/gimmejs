@@ -1,5 +1,5 @@
 {
-  "name": "gimme.js",
+  "name": "GimmeJS",
   "version": "0.0.1",
   "description": "A small package for getting information about your objects, strings etc.",
   "scripts": {
