@@ -12,6 +12,8 @@ var _init = function() {
 	_setExports();
 };
 
+// populates prototypes object with each type 
+// as a key and empty object as a value
 var _initPrototypes = function() {
 	var i = 0,
 		len = allTypes.length
@@ -33,6 +35,8 @@ var _setExports = function() {
 
 };
 
+// creates a new object from prototype
+// to be returned to the user
 var _buildObj = function(entity) {
 	var type = _type(entity),
 		proto = prototypes[type],
@@ -45,12 +49,17 @@ var _buildObj = function(entity) {
 	return obj;
 };
 
+// returns the type of value
 var _type = function(value) {
+
+	// using Array.isArray for arrays because of IE "bug"
 	return Array.isArray(value) ? 'array' :
 		Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 };
 
-var _pushToMethods = function(types, selectedMethods) {
+// adds new methods to selected types by adding them
+// to the type specific prototype object
+var _addMethods = function(types, selectedMethods) {
 	var type,
 		method,
 		i=0,
@@ -66,7 +75,10 @@ var _pushToMethods = function(types, selectedMethods) {
 	}
 };
 
-var _gimmeTypesArr = function(types) {
+// converts types string passed to .extend()
+// to an array of type names
+var _typesStrToArr = function(types) {
+
 	types = types.replace(/( |,)/g, ' ');
 	types = types.split(' ');
 
@@ -112,7 +124,7 @@ gimme.extend = function(types, selectedMethods) {
 			+ 'extend() is invalid.');
 	}
 
-	_pushToMethods(_gimmeTypesArr(types), selectedMethods);
+	_addMethods(_typesStrToArr(types), selectedMethods);
 
 };
 
