@@ -1,6 +1,6 @@
 # GimmeJS
 
-GimmeJS is a tiny JavaScript package that lets you get some information about your objects. For example, if you give it a function, you can ask for the number of code lines of that particular function. Here's an example:
+GimmeJS is a tiny JavaScript package that lets you get some information about your object, strings etc. For example, if you give it a function, you can ask for the number of code lines of that particular function. Here's an example:
 
 ```js
 function myFunction() {
