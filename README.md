@@ -91,6 +91,8 @@ Returns the length of an array or a string. This is exactly the same as using th
 #### gimme([date]).difference([date], accuracy)
 Returns the difference of the two Date objects as a rounded down integer either in milliseconds, seconds, minutes, hours or days depending on `accuracy`. It returns the difference in milliseconds by default. `accuracy` is a string and one of the following: `'ms'`, `'s'`, `'m'`, `'h'`, `'d'`.
 
+Dates are automatically being converted to UTC dates, so daylight saving times are ignored.
+
 #### gimme([function]).name()
 Returns the name of the function as a string.
 
