@@ -23,7 +23,7 @@ var _initPrototypes = function() {
 };
 
 var _setExports = function() {
-	if (typeof module !== 'undefined' && module.exports !== 'undefined') {
+	if (typeof module === 'object' && module.exports) {
 		module.exports = gimme;
 	}
 
@@ -46,7 +46,8 @@ var _buildObj = function(entity) {
 };
 
 var _type = function(value) {
-	return Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
+	return Array.isArray(value) ? 'array' :
+		Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 };
 
 var _pushToMethods = function(types, selectedMethods) {
