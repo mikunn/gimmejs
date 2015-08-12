@@ -51,6 +51,9 @@ var result = gimme(5).times(6);
 console.log(result); // 30
 ```
 
+## Requirements
+GimmeJS requires an environment with ES5 support, so < IE 9 are not supported. You can use it in the browser (with Browserify etc.) and in Node, but RequireJS and other AMD implementations are currently not supported.
+
 ## Installation and usage
 To use GimmeJS, you only need the `gimme.js` or `gimme.min.js` located in the `lib` directory. You can then reference the file from an HTML file or by using CommonJS. *AMD is currently not supported.*
 
