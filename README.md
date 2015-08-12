@@ -130,7 +130,7 @@ In the example above, we define a new method `times()`for numbers. So when you p
 
 Inside the methods you define, you can reference to the original value passed to `gimme()` with `this.entity`and get the type of the value with `this.type`.
 
-The list of you types you want to extend must be a string. The order of the types does not matter. If you want to extend both numbers and strings, all the following strings are valid: `'number string'`, `'number,string`, `'number, string'`. If you want to extend all types, use the string `'all'`.
+The list of types you want to extend must be a string. The order of the types does not matter. If you want to extend both numbers and strings, all the following strings are valid: `'number string'`, `'number,string`, `'number, string'`. If you want to extend all types, use the string `'all'`.
 
 In the previous example, it might be a good idea to do some type checking for argument `val`. You could simply use `gimme.type(val) === 'number'` to make sure it's a number.
 
