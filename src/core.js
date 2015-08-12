@@ -21,9 +21,9 @@ var _initPrototypes = function() {
 		len = allTypes.length
 	;
 
-	for(i; i < len; i++) {
-		prototypes[allTypes[i]] = {};
-	}
+	allTypes.forEach(function(type) {
+		prototypes[type] = {};
+	});
 };
 
 var _setExports = function() {
