@@ -105,7 +105,7 @@ Returns the number of lines of code (loc) of the function.
 #### gimme([object]).ownMembers()
 #### gimme([object]).ownProperties()
 #### gimme([object]).ownMethods()
-Method `.members()`returns the properties and methods of the object and objects in its prototype chain in an array. `.properties()` and `.methods()`work in a similar fashion, but return only the properties and methods, respectively.
+Method `.members()`returns the all properties (including methods) of the object and objects in its prototype chain in an array. `.properties()` and `.methods()`work in a similar fashion, but `.methods()` returns only methods and `.properties()` properties that are not methods.
 
 Methods starting with 'own' return members, properties and methods of the object without traversing the prototype chain.
 
