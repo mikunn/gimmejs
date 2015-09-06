@@ -4,9 +4,9 @@
 
 var prototypes = {},
 	allTypes = 'array boolean date function number null object regexp string undefined'.split(' '),
-	
+
 	// accepts only words separated by commas and/or spaces
-	typesRe = /^([a-z]+( |,)*)+$/i 
+	typesRe = /^([a-z]+( |,)*)+$/i
 ;
 
 var _init = function() {
@@ -14,7 +14,7 @@ var _init = function() {
 	_setExports();
 };
 
-// populates prototypes object with each type 
+// populates prototypes object with each type
 // as a key and empty object as a value
 var _initPrototypes = function() {
 	var i = 0,
@@ -91,14 +91,14 @@ var _typesStrToArr = function(types) {
 
 	else {
 		types = types.map(function(type) {
-			return type.toLowerCase();
+			var typeLowered = type.toLowerCase();
+
+			if (allTypes.indexOf(typeLowered) < 0) {
+					throw new Error(typeLowered + ' is not a known type.')
+			}
+			return typeLowered;
 		});
 
-		types.forEach(function(type) {
-			if (allTypes.indexOf(type) < 0) {
-				throw new Error(type + ' is not a known type.')
-			}
-		});
 	}
 
 	return types;

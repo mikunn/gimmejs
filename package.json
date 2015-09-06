@@ -1,6 +1,6 @@
 {
   "name": "GimmeJS",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A small package for getting information about your objects, strings etc.",
   "scripts": {
     "test": "mocha"
