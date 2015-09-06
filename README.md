@@ -1,6 +1,6 @@
 # GimmeJS
 
-GimmeJS is a tiny JavaScript package that lets you get some information about your objects. For example, if you give it a function, you can ask for the number of code lines of that particular function. Here's an example:
+GimmeJS is a tiny JavaScript package that lets you get some information about your object, strings etc. For example, if you give it a function, you can ask for the number of code lines of that particular function. Here's an example:
 
 ```js
 function myFunction() {
@@ -105,7 +105,7 @@ Returns the number of lines of code (loc) of the function.
 #### gimme([object]).ownMembers()
 #### gimme([object]).ownProperties()
 #### gimme([object]).ownMethods()
-Method `.members()`returns the properties and methods of the object and objects in its prototype chain in an array. `.properties()` and `.methods()`work in a similar fashion, but return only the properties and methods, respectively.
+Method `.members()`returns the all properties (including methods) of the object and objects in its prototype chain in an array. `.properties()` and `.methods()`work in a similar fashion, but `.methods()` returns only methods and `.properties()` properties that are not methods.
 
 Methods starting with 'own' return members, properties and methods of the object without traversing the prototype chain.
 
@@ -130,7 +130,7 @@ In the example above, we define a new method `times()`for numbers. So when you p
 
 Inside the methods you define, you can reference to the original value passed to `gimme()` with `this.entity`and get the type of the value with `this.type`.
 
-The list of you types you want to extend must be a string. The order of the types does not matter. If you want to extend both numbers and strings, all the following strings are valid: `'number string'`, `'number,string`, `'number, string'`. If you want to extend all types, use the string `'all'`.
+The list of types you want to extend must be a string. The order of the types does not matter. If you want to extend both numbers and strings, all the following strings are valid: `'number string'`, `'number,string`, `'number, string'`. If you want to extend all types, use the string `'all'`.
 
 In the previous example, it might be a good idea to do some type checking for argument `val`. You could simply use `gimme.type(val) === 'number'` to make sure it's a number.
 
